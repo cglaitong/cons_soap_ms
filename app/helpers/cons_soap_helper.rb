@@ -1,0 +1,2 @@
+module ConsSoapHelper
+end
