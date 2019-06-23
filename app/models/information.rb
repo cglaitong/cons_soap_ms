@@ -3,7 +3,7 @@ class Information
 # require 'json'
 
   def initialize(us)
-
+    #Esta url hay que cambiarla cuando el otro equipo despliegue las cosas
     client = Savon.client(wsdl: "http://192.168.99.109:3001/wsimages/wsdl")
     response = client.call(:user_images, message: { 'username' => us}
     )
