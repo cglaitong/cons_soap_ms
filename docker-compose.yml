@@ -1,0 +1,26 @@
+version: '2.1'
+services:
+  cons_soap_db:
+    container_name: cons_soap_db
+    image: mysql:5.7
+    healthcheck:
+      test: "mysqlcheck -u$$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE"
+      interval: 20s
+      timeout: 5s
+      retries: 15
+    environment:
+        MYSQL_ROOT_PASSWORD: 123
+        MYSQL_DATABASE: cons_soap_db
+        MYSQL_USER: cristian
+        MYSQL_PASSWORD: 123
+    ports:
+      - "3317:3306"
+  cons_soap_ms:
+    container_name: cons_soap_ms
+    build: .
+    command: bash -c "sleep 40 && rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails s -p 2090 -b '0.0.0.0'"
+    ports:
+      - "2090:2090"
+    depends_on:
+      - cons_soap_db
+
