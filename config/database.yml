@@ -15,7 +15,7 @@ default: &default
   database : cons_soap_db
   username: root
   password: 123
-  hostname: 192.168.99.110
+  hostname: 192.168.99.101
   port: 3317
   pool: 5
 
