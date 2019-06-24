@@ -16,7 +16,7 @@ class WsfilesController < ApplicationController
 
       name=params[:owner]
       #Esta url hay que cambiarla cuando ya esten las cosas con el proxy inverso completas
-      @result = HTTParty.post("http://192.168.99.101:8005/api/v1/soap",
+      @result = HTTParty.post("http://download-ms:8005/api/v1/soap",
                               :body => { :owner => name }.to_json,
                               :headers => { 'Content-Type' => 'application/json' } )
 
