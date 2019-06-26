@@ -4,7 +4,8 @@ class Information
 
   def initialize(us)
     #Esta url hay que cambiarla cuando el otro equipo despliegue las cosas
-    client = Savon.client(wsdl: "http://192.168.99.101:3001/wsimages/wsdl")
+    url= ENV['URL_EXT']
+    client = Savon.client(wsdl: url)
     response = client.call(:user_images, message: { 'username' => us}
     )
     if response.success?

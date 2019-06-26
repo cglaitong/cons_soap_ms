@@ -1,0 +1,1 @@
+URL: <%= ENV['URL_EXT'] %>
