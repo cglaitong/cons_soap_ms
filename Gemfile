@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 ruby "2.5.1"
 
-gem 'httparty', '~> 0.13.7'
+gem 'httparty', '~> 0.21.0'
 
 gem 'wash_out'
 
